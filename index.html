@@ -41,8 +41,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: linear-gradient(135deg, #000, #111);
             z-index: -3;
         }
@@ -51,8 +51,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: linear-gradient(
                 45deg,
                 var(--royal-purple),
@@ -78,8 +78,8 @@
 
         .diamond-sparkle {
             position: fixed;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background-image: 
                 radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 25%),
                 radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 25%);
@@ -376,21 +376,22 @@
 
         .luxury-confetti {
             position: fixed;
-            width: 15px;
-            height: 15px;
+            width: 12px;
+            height: 12px;
             opacity: 0;
             z-index: 8;
-            animation: confettiFall 4s linear forwards;
+            animation: confettiFall 5s linear forwards;
             border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255,255,255,0.7);
         }
 
         @keyframes confettiFall {
             0% {
-                transform: translateY(-100px) rotate(0deg);
+                transform: translateY(-100px) rotate(0deg) scale(0.8);
                 opacity: 1;
             }
             100% {
-                transform: translateY(100vh) rotate(360deg);
+                transform: translateY(100vh) rotate(720deg) scale(1.2);
                 opacity: 0;
             }
         }
@@ -531,11 +532,11 @@
 
         .luxury-emoji {
             position: absolute;
-            font-size: 2rem;
+            font-size: 1.2rem;
             z-index: -1;
             animation: fly linear infinite;
-            text-shadow: 0 0 15px var(--diamond);
-            opacity: 0.8;
+            text-shadow: 0 0 5px var(--diamond);
+            opacity: 0.6;
             will-change: transform;
         }
 
@@ -545,10 +546,10 @@
                 opacity: 0;
             }
             10% {
-                opacity: 0.8;
+                opacity: 0.6;
             }
             90% {
-                opacity: 0.8;
+                opacity: 0.6;
             }
             100% {
                 transform: translate(var(--end-x), var(--end-y));
@@ -974,7 +975,7 @@
             }
 
             .luxury-emoji {
-                font-size: 1.5rem;
+                font-size: 1rem;
             }
 
             .stopwatch-title {
@@ -1218,12 +1219,12 @@
             // VIP configuration
             const config = {
                 balloons: 20,
-                confetti: 50,
+                confetti: 100,  // Increased number of confetti
                 emojis: ['🛩️', '🚀', '🐣', '☄️', '🐅', '🐋', '💎', '✨', '👑', '🪐', '🌌', '🎇'],
                 animations: {
                     balloonSpeed: 8,
-                    confettiSpeed: 4,
-                    emojiSpeed: 15
+                    confettiSpeed: 5,  // Increased speed
+                    emojiSpeed: 20  // Reduced frequency
                 }
             };
             
@@ -1350,7 +1351,7 @@
                 setTimeout(createLuxuryBalloons, 15000);
             }
             
-            // Create luxury flying emojis
+            // Create luxury flying emojis (reduced frequency)
             function createLuxuryEmojis() {
                 const emoji = config.emojis[Math.floor(Math.random() * config.emojis.length)];
                 const flyingEmoji = document.createElement('div');
@@ -1391,7 +1392,7 @@
                 flyingEmoji.style.setProperty('--end-y', `${endY}vh`);
                 
                 // Random size and speed
-                const size = 1 + Math.random() * 3;
+                const size = 0.8 + Math.random() * 1.5;  // Smaller size
                 flyingEmoji.style.fontSize = `${size}rem`;
                 
                 const duration = 5 + Math.random() * config.animations.emojiSpeed;
@@ -1404,35 +1405,47 @@
                     flyingEmoji.remove();
                 }, duration * 1000);
                 
-                // Create next emoji with random delay
-                setTimeout(createLuxuryEmojis, 300 + Math.random() * 1200);
+                // Create next emoji with random delay (longer delay)
+                setTimeout(createLuxuryEmojis, 1000 + Math.random() * 2000);
             }
             
             function createLuxuryConfetti() {
+                const colors = ['var(--royal-purple)', 'var(--metallic-gold)', 'var(--ruby-red)', 'var(--sapphire-blue)', 'var(--emerald-green)', 'var(--pure-gold)', 'var(--blush-pink)'];
+                const shapes = ['circle', 'square', 'triangle'];
+                
                 for (let i = 0; i < config.confetti; i++) {
                     setTimeout(() => {
                         const confetti = document.createElement('div');
                         confetti.className = 'luxury-confetti';
                         confetti.style.left = Math.random() * 100 + 'vw';
                         
-                        // Random shape (square or circle)
-                        if (Math.random() > 0.5) {
-                            confetti.style.borderRadius = '4px';
-                            confetti.style.width = (10 + Math.random() * 10) + 'px';
-                            confetti.style.height = (10 + Math.random() * 10) + 'px';
+                        // Random shape
+                        const shape = shapes[Math.floor(Math.random() * shapes.length)];
+                        if (shape === 'triangle') {
+                            confetti.style.width = '0';
+                            confetti.style.height = '0';
+                            confetti.style.borderLeft = '8px solid transparent';
+                            confetti.style.borderRight = '8px solid transparent';
+                            confetti.style.borderBottom = `16px solid ${colors[Math.floor(Math.random() * colors.length)]}`;
+                            confetti.style.backgroundColor = 'transparent';
                         } else {
-                            confetti.style.borderRadius = '50%';
                             const size = 8 + Math.random() * 12;
                             confetti.style.width = size + 'px';
                             confetti.style.height = size + 'px';
+                            confetti.style.borderRadius = shape === 'circle' ? '50%' : '2px';
+                            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
                         }
                         
-                        // Random color
-                        const colors = ['var(--royal-purple)', 'var(--metallic-gold)', 'var(--ruby-red)', 'var(--sapphire-blue)', 'var(--emerald-green)', 'var(--pure-gold)'];
-                        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                        // Random rotation and scale
+                        const rotation = Math.random() * 360;
+                        const scale = 0.8 + Math.random() * 0.4;
                         
-                        const duration = 2 + Math.random() * config.animations.confettiSpeed;
+                        // Random animation duration
+                        const duration = 3 + Math.random() * config.animations.confettiSpeed;
+                        
+                        // Apply animation
                         confetti.style.animation = `confettiFall ${duration}s linear forwards`;
+                        confetti.style.transform = `rotate(${rotation}deg) scale(${scale})`;
                         
                         document.body.appendChild(confetti);
                         
@@ -1440,8 +1453,11 @@
                         setTimeout(() => {
                             confetti.remove();
                         }, duration * 1000);
-                    }, i * 200);
+                    }, i * 50);  // Faster creation
                 }
+                
+                // Continuous confetti creation
+                setTimeout(createLuxuryConfetti, 5000);
             }
             
             // Enhanced confetti effect
@@ -1449,7 +1465,7 @@
                 const colors = ['var(--royal-purple)', 'var(--metallic-gold)', 'var(--ruby-red)', 'var(--sapphire-blue)', 'var(--emerald-green)', 'var(--pure-gold)'];
                 const shapes = ['circle', 'square', 'triangle'];
                 
-                for (let i = 0; i < 50; i++) {
+                for (let i = 0; i < 100; i++) {  // Increased number
                     const confetti = document.createElement('div');
                     confetti.className = 'enhanced-confetti';
                     
@@ -1465,9 +1481,9 @@
                     if (shape === 'triangle') {
                         confetti.style.width = '0';
                         confetti.style.height = '0';
-                        confetti.style.borderLeft = '8px solid transparent';
-                        confetti.style.borderRight = '8px solid transparent';
-                        confetti.style.borderBottom = `16px solid ${color}`;
+                        confetti.style.borderLeft = '10px solid transparent';
+                        confetti.style.borderRight = '10px solid transparent';
+                        confetti.style.borderBottom = `20px solid ${color}`;
                         confetti.style.backgroundColor = 'transparent';
                     } else {
                         confetti.style.width = '15px';
@@ -1476,7 +1492,7 @@
                     }
                     
                     // Random animation duration and delay
-                    const duration = 3 + Math.random() * 3;
+                    const duration = 3 + Math.random() * 4;  // Longer duration
                     const delay = Math.random() * 2;
                     confetti.style.animation = `enhancedConfettiFall ${duration}s linear ${delay}s forwards`;
                     
@@ -2748,7 +2764,7 @@
                 // Start animations
                 createLuxuryBalloons();
                 createLuxuryEmojis();
-                createEnhancedConfetti();
+                createLuxuryConfetti();
                 
                 // Go to next page
                 showPage(2);
@@ -2816,8 +2832,9 @@
                 }
             });
             
-            // Start emoji animations immediately
+            // Start animations immediately (with reduced emoji frequency)
             createLuxuryEmojis();
+            createLuxuryConfetti();
         });
     </script>
 </body>
