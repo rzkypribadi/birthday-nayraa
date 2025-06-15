@@ -842,249 +842,6 @@
             box-shadow: 0 5px 15px rgba(224, 17, 95, 0.4);
         }
 
-        /* Birthday Card Creator Styles */
-        .card-creator-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-        }
-
-        .card-preview {
-            width: 100%;
-            min-height: 300px;
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            border-radius: 10px;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 2px solid var(--pure-gold);
-        }
-
-        .card-element {
-            position: absolute;
-            cursor: move;
-            user-select: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card-element.selected {
-            outline: 2px dashed var(--ruby-red);
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            z-index: 10;
-        }
-
-        .card-element:hover {
-            transform: scale(1.03);
-        }
-
-        .card-elements {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-            justify-content: center;
-        }
-
-        .card-element-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--pure-gold);
-            border-radius: 5px;
-            padding: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .card-element-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
-        }
-
-        .card-element-btn img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-        }
-
-        .card-message-input {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--pure-gold);
-            border-radius: 5px;
-            color: white;
-            font-size: 1em;
-            transition: all 0.3s;
-        }
-
-        .card-message-input:focus {
-            outline: none;
-            border-color: var(--metallic-gold);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-        }
-
-        .card-controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .card-control-btn {
-            background: linear-gradient(135deg, var(--royal-purple), var(--ruby-red));
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        .card-control-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(224, 17, 95, 0.4);
-        }
-
-        .card-final {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 200;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s;
-        }
-
-        .card-final.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .card-final-image {
-            max-width: 90%;
-            max-height: 70vh;
-            border: 3px solid var(--pure-gold);
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-            transform: scale(0.9);
-            transition: transform 0.5s;
-            cursor: pointer;
-        }
-
-        .card-final.active .card-final-image {
-            transform: scale(1);
-        }
-
-        .card-final-message {
-            font-size: 1.5em;
-            color: white;
-            margin: 20px 0;
-            text-align: center;
-            max-width: 80%;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s 0.3s;
-        }
-
-        .card-final.active .card-final-message {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card-final-btn {
-            background: linear-gradient(135deg, var(--emerald-green), var(--royal-purple));
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-top: 20px;
-            font-size: 1.1em;
-            transition: all 0.3s;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s 0.6s;
-        }
-
-        .card-final.active .card-final-btn {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card-final-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(80, 200, 120, 0.5);
-        }
-
-        .card-confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: var(--pure-gold);
-            opacity: 0;
-            z-index: 5;
-        }
-
-        /* Special Effects for Card Creation */
-        .card-sparkle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: var(--pure-gold);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 15;
-            animation: sparklePop 0.8s ease-out forwards;
-        }
-
-        @keyframes sparklePop {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.5);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 0;
-            }
-        }
-
-        .card-glow {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.3), transparent 70%);
-            pointer-events: none;
-            z-index: 5;
-            animation: cardGlow 2s infinite alternate;
-        }
-
-        @keyframes cardGlow {
-            0% {
-                opacity: 0.3;
-            }
-            100% {
-                opacity: 0.7;
-            }
-        }
-
         /* Photo Pages */
         .photo-page {
             display: flex;
@@ -1246,10 +1003,6 @@
                 line-height: 30px;
                 font-size: 1.2em;
             }
-
-            .card-preview {
-                min-height: 250px;
-            }
         }
     </style>
 </head>
@@ -1386,49 +1139,8 @@
         </div>
     </div>
 
-    <!-- Page 8 - Birthday Card Creator -->
-    <div class="page" id="page8">
-        <div class="luxury-container">
-            <h1>Buat Kartu Spesial</h1>
-            <p>Design Dan Buat Kartu Kamu Sendiri</p>
-            
-            <div class="card-creator-container">
-                <div class="card-preview" id="cardPreview">
-                    <div class="card-glow"></div>
-                </div>
-                
-                <div class="card-elements">
-                    <div class="card-element-btn" data-type="balloon">
-                        <img src="https://cdn.pixabay.com/photo/2017/01/31/23/42/balloons-2028478_960_720.png" alt="Balloon">
-                    </div>
-                    <div class="card-element-btn" data-type="cake">
-                        <img src="https://cdn.pixabay.com/photo/2017/01/11/11/33/cake-1971552_960_720.png" alt="Cake">
-                    </div>
-                    <div class="card-element-btn" data-type="gift">
-                        <img src="https://cdn.pixabay.com/photo/2017/01/31/23/36/gift-2028727_960_720.png" alt="Gift">
-                    </div>
-                    <div class="card-element-btn" data-type="hat">
-                        <img src="https://cdn.pixabay.com/photo/2017/01/31/23/36/party-2028725_960_720.png" alt="Party Hat">
-                    </div>
-                    <div class="card-element-btn" data-type="confetti">
-                        <img src="https://cdn.pixabay.com/photo/2017/01/31/23/36/confetti-2028726_960_720.png" alt="Confetti">
-                    </div>
-                </div>
-                
-                <input type="text" class="card-message-input" id="cardMessage" placeholder="Buat Teks...">
-                
-                <div class="card-controls">
-                    <button class="card-control-btn" id="clearCardBtn">Hapus Semua Efek</button>
-                    <button class="card-control-btn" id="finishCardBtn">Selesai</button>
-                </div>
-            </div>
-            
-            <div class="luxury-short-message">Kartu Yang Hanya Ada Di Website Ini</div>
-        </div>
-    </div>
-
-    <!-- Page 9 - Photo 1 -->
-    <div class="page photo-page" id="page9">
+    <!-- Page 8 - Photo 1 -->
+    <div class="page photo-page" id="page8">
         <div class="luxury-container">
             <h1>HAPPY BIRTHDAY</h1>
             <div class="luxury-photo-frame" id="photo1" style="background-image: url('https://files.catbox.moe/qeyjwe.webp')">
@@ -1441,8 +1153,8 @@
         </div>
     </div>
 
-    <!-- Page 10 - Photo 2 -->
-    <div class="page photo-page" id="page10">
+    <!-- Page 9 - Photo 2 -->
+    <div class="page photo-page" id="page9">
         <div class="luxury-container">
             <h1>HAPPY BIRTHDAY</h1>
             <div class="luxury-photo-frame" id="photo2" style="background-image: url('https://files.catbox.moe/auwnh9.webp')">
@@ -1455,8 +1167,8 @@
         </div>
     </div>
 
-    <!-- Page 11 - Photo 3 -->
-    <div class="page photo-page" id="page11">
+    <!-- Page 10 - Photo 3 -->
+    <div class="page photo-page" id="page10">
         <div class="luxury-container">
             <h1>TERIMA KASIH</h1>
             <div class="luxury-photo-frame" id="photo3" style="background-image: url('https://files.catbox.moe/chouth.jpg')">
@@ -1469,21 +1181,14 @@
         </div>
     </div>
 
-    <!-- Page 12 - Final Page -->
-    <div class="page" id="page12">
+    <!-- Page 11 - Final Page -->
+    <div class="page" id="page11">
         <div class="luxury-container luxury-glow">
             <h1 id="finalGreeting"></h1>
             <p></p>
             <div class="luxury-short-message">Until we celebrate again in PREMIUM style</div>
             <button class="luxury-btn" id="restartBtn"></button>
         </div>
-    </div>
-
-    <!-- Card Final Display -->
-    <div class="card-final" id="cardFinal">
-        <img class="card-final-image" id="cardFinalImage" src="" alt="VIP Birthday Card">
-        <p class="card-final-message">Tekan kartu untuk mendownload! Terima kasih telah membuat kartu spesial untuk Nayra!</p>
-        <button class="card-final-btn" id="closeCardBtn">Selanjutnya</button>
     </div>
 
     <button class="luxury-next-btn" id="nextBtn">
@@ -1504,7 +1209,7 @@
     </div>
 
     <audio id="bgMusic" loop>
-        <source src="https://files.catbox.moe/75ooy9.mp3" type="audio/mpeg">
+        <source src="https://files.catbox.moe/bbqai3.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -1512,8 +1217,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             // VIP configuration
             const config = {
-                balloons: 15,
-                confetti: 30,
+                balloons: 20,
+                confetti: 50,
                 emojis: ['🛩️', '🚀', '🐣', '☄️', '🐅', '🐋', '💎', '✨', '👑', '🪐', '🌌', '🎇'],
                 animations: {
                     balloonSpeed: 8,
@@ -1530,7 +1235,7 @@
                 photo1: 'https://files.catbox.moe/qeyjwe.webp',
                 photo2: 'https://files.catbox.moe/auwnh9.webp',
                 photo3: 'https://files.catbox.moe/chouth.jpg',
-                music: 'https://files.catbox.moe/75ooy9.mp3',
+                music: 'https://files.catbox.moe/bbqai3.mp3',
                 name: ''
             };
             
@@ -2979,334 +2684,16 @@
                 // Next puzzle button
                 nextWordPuzzleBtn.addEventListener('click', function() {
                     wordPuzzleComplete.classList.remove('active');
-                    showPage(8); // Go to card creator page
+                    showPage(8); // Go to photo page
                 });
                 
                 // Initialize word puzzle
                 createWordPuzzle();
             }
             
-            // Birthday Card Creator
-            function setupCardCreator() {
-                const cardPreview = document.getElementById('cardPreview');
-                const cardMessage = document.getElementById('cardMessage');
-                const clearCardBtn = document.getElementById('clearCardBtn');
-                const finishCardBtn = document.getElementById('finishCardBtn');
-                const cardFinal = document.getElementById('cardFinal');
-                const cardFinalImage = document.getElementById('cardFinalImage');
-                const closeCardBtn = document.getElementById('closeCardBtn');
-                
-                let elements = [];
-                let selectedElement = null;
-                
-                // Card elements data
-                const cardElements = {
-                    balloon: {
-                        src: 'https://cdn.pixabay.com/photo/2017/01/31/23/42/balloons-2028478_960_720.png',
-                        width: 80,
-                        height: 100
-                    },
-                    cake: {
-                        src: 'https://cdn.pixabay.com/photo/2017/01/11/11/33/cake-1971552_960_720.png',
-                        width: 100,
-                        height: 80
-                    },
-                    gift: {
-                        src: 'https://cdn.pixabay.com/photo/2017/01/31/23/36/gift-2028727_960_720.png',
-                        width: 80,
-                        height: 80
-                    },
-                    hat: {
-                        src: 'https://cdn.pixabay.com/photo/2017/01/31/23/36/party-2028725_960_720.png',
-                        width: 80,
-                        height: 80
-                    },
-                    confetti: {
-                        src: 'https://cdn.pixabay.com/photo/2017/01/31/23/36/confetti-2028726_960_720.png',
-                        width: 100,
-                        height: 100
-                    }
-                };
-                
-                // Add element buttons event listeners
-                document.querySelectorAll('.card-element-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const type = this.dataset.type;
-                        addElementToCard(type);
-                    });
-                });
-                
-                // Add element to card
-                function addElementToCard(type) {
-                    const elementData = cardElements[type];
-                    const element = document.createElement('div');
-                    element.className = 'card-element';
-                    element.dataset.type = type;
-                    
-                    const img = document.createElement('img');
-                    img.src = elementData.src;
-                    img.style.width = `${elementData.width}px`;
-                    img.style.height = `${elementData.height}px`;
-                    
-                    element.appendChild(img);
-                    
-                    // Position randomly within card
-                    const cardRect = cardPreview.getBoundingClientRect();
-                    const maxX = cardRect.width - elementData.width;
-                    const maxY = cardRect.height - elementData.height;
-                    
-                    const x = Math.max(0, Math.min(maxX, Math.random() * maxX));
-                    const y = Math.max(0, Math.min(maxY, Math.random() * maxY));
-                    
-                    element.style.left = `${x}px`;
-                    element.style.top = `${y}px`;
-                    element.style.width = `${elementData.width}px`;
-                    element.style.height = `${elementData.height}px`;
-                    
-                    // Create sparkle effect
-                    createSparkle(x + elementData.width/2, y + elementData.height/2);
-                    
-                    // Make draggable
-                    makeElementDraggable(element);
-                    
-                    cardPreview.appendChild(element);
-                    elements.push(element);
-                    
-                    // Select this element
-                    selectElement(element);
-                }
-                
-                // Create sparkle effect
-                function createSparkle(x, y) {
-                    const sparkle = document.createElement('div');
-                    sparkle.className = 'card-sparkle';
-                    sparkle.style.left = `${x}px`;
-                    sparkle.style.top = `${y}px`;
-                    
-                    // Random color
-                    const colors = ['var(--pure-gold)', 'var(--ruby-red)', 'var(--emerald-green)', 'var(--sapphire-blue)', 'var(--royal-purple)'];
-                    sparkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    
-                    cardPreview.appendChild(sparkle);
-                    
-                    // Remove after animation
-                    setTimeout(() => {
-                        sparkle.remove();
-                    }, 800);
-                }
-                
-                // Make element draggable
-                function makeElementDraggable(element) {
-                    let offsetX, offsetY;
-                    let isDragging = false;
-                    
-                    element.addEventListener('mousedown', startDrag);
-                    element.addEventListener('touchstart', startDrag);
-                    
-                    function startDrag(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        isDragging = true;
-                        
-                        // Get initial position
-                        const rect = element.getBoundingClientRect();
-                        if (e.type === 'mousedown') {
-                            offsetX = e.clientX - rect.left;
-                            offsetY = e.clientY - rect.top;
-                        } else {
-                            offsetX = e.touches[0].clientX - rect.left;
-                            offsetY = e.touches[0].clientY - rect.top;
-                        }
-                        
-                        // Select this element
-                        selectElement(element);
-                        
-                        document.addEventListener('mousemove', drag);
-                        document.addEventListener('touchmove', drag);
-                        document.addEventListener('mouseup', endDrag);
-                        document.addEventListener('touchend', endDrag);
-                    }
-                    
-                    function drag(e) {
-                        if (!isDragging) return;
-                        e.preventDefault();
-                        
-                        const clientX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
-                        const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
-                        
-                        const cardRect = cardPreview.getBoundingClientRect();
-                        const maxX = cardRect.width - element.offsetWidth;
-                        const maxY = cardRect.height - element.offsetHeight;
-                        
-                        let x = clientX - cardRect.left - offsetX;
-                        let y = clientY - cardRect.top - offsetY;
-                        
-                        // Constrain to card bounds
-                        x = Math.max(0, Math.min(maxX, x));
-                        y = Math.max(0, Math.min(maxY, y));
-                        
-                        element.style.left = `${x}px`;
-                        element.style.top = `${y}px`;
-                    }
-                    
-                    function endDrag() {
-                        if (!isDragging) return;
-                        isDragging = false;
-                        
-                        document.removeEventListener('mousemove', drag);
-                        document.removeEventListener('touchmove', drag);
-                        document.removeEventListener('mouseup', endDrag);
-                        document.removeEventListener('touchend', endDrag);
-                    }
-                }
-                
-                // Select element
-                function selectElement(element) {
-                    // Deselect previous
-                    if (selectedElement) {
-                        selectedElement.classList.remove('selected');
-                    }
-                    
-                    // Select new
-                    selectedElement = element;
-                    element.classList.add('selected');
-                }
-                
-                // Clear card
-                clearCardBtn.addEventListener('click', function() {
-                    elements.forEach(el => el.remove());
-                    elements = [];
-                    selectedElement = null;
-                    cardMessage.value = '';
-                });
-                
-                // Create confetti effect
-                function createConfetti() {
-                    for (let i = 0; i < 50; i++) {
-                        const confetti = document.createElement('div');
-                        confetti.className = 'card-confetti';
-                        
-                        // Random shape and color
-                        const shapes = ['circle', 'square'];
-                        const colors = ['var(--pure-gold)', 'var(--ruby-red)', 'var(--emerald-green)', 'var(--sapphire-blue)', 'var(--royal-purple)'];
-                        
-                        const shape = shapes[Math.floor(Math.random() * shapes.length)];
-                        const color = colors[Math.floor(Math.random() * colors.length)];
-                        
-                        confetti.style.backgroundColor = color;
-                        confetti.style.borderRadius = shape === 'circle' ? '50%' : '0';
-                        
-                        // Random size
-                        const size = 5 + Math.random() * 10;
-                        confetti.style.width = `${size}px`;
-                        confetti.style.height = `${size}px`;
-                        
-                        // Random position
-                        confetti.style.left = `${Math.random() * 100}%`;
-                        confetti.style.top = `${-10 - Math.random() * 20}%`;
-                        
-                        // Random animation
-                        const animationDuration = 2 + Math.random() * 3;
-                        const animationDelay = Math.random() * 2;
-                        const animationName = `confetti-fall-${Math.floor(Math.random() * 3) + 1}`;
-                        
-                        confetti.style.animation = `${animationName} ${animationDuration}s ease-in ${animationDelay}s forwards`;
-                        
-                        cardFinal.appendChild(confetti);
-                        
-                        // Remove after animation
-                        setTimeout(() => {
-                            confetti.remove();
-                        }, (animationDuration + animationDelay) * 1000);
-                    }
-                }
-                
-                // Add confetti animations to style
-                function addConfettiAnimations() {
-                    const style = document.createElement('style');
-                    style.textContent = `
-                        @keyframes confetti-fall-1 {
-                            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-                            10% { opacity: 1; }
-                            100% { transform: translate(${Math.random() * 100 - 50}px, 120vh) rotate(${Math.random() * 360}deg); opacity: 0; }
-                        }
-                        @keyframes confetti-fall-2 {
-                            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-                            10% { opacity: 1; }
-                            100% { transform: translate(${Math.random() * 100 - 50}px, 120vh) rotate(${Math.random() * 360}deg); opacity: 0; }
-                        }
-                        @keyframes confetti-fall-3 {
-                            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-                            10% { opacity: 1; }
-                            100% { transform: translate(${Math.random() * 100 - 50}px, 120vh) rotate(${Math.random() * 360}deg); opacity: 0; }
-                        }
-                    `;
-                    document.head.appendChild(style);
-                }
-                
-                // Finish card
-                finishCardBtn.addEventListener('click', function() {
-                    // Add message to card if provided
-                    if (cardMessage.value.trim()) {
-                        const messageElement = document.createElement('div');
-                        messageElement.className = 'card-element';
-                        messageElement.style.position = 'absolute';
-                        messageElement.style.bottom = '20px';
-                        messageElement.style.left = '0';
-                        messageElement.style.width = '100%';
-                        messageElement.style.textAlign = 'center';
-                        messageElement.style.fontFamily = '"Playfair Display", serif';
-                        messageElement.style.fontSize = '24px';
-                        messageElement.style.color = '#333';
-                        messageElement.style.fontWeight = 'bold';
-                        messageElement.textContent = cardMessage.value;
-                        
-                        cardPreview.appendChild(messageElement);
-                        elements.push(messageElement);
-                    }
-                    
-                    // Convert card to image
-                    html2canvas(cardPreview).then(canvas => {
-                        cardFinalImage.src = canvas.toDataURL();
-                        cardFinal.classList.add('active');
-                        
-                        // Add confetti animations
-                        addConfettiAnimations();
-                        
-                        // Create confetti effect
-                        createConfetti();
-                        setInterval(createConfetti, 300);
-                    });
-                });
-                
-                // Download card when clicked
-                cardFinalImage.addEventListener('click', function() {
-                    const link = document.createElement('a');
-                    link.download = 'nayra-birthday-card.png';
-                    link.href = this.src;
-                    link.click();
-                });
-                
-                // Close card final view
-                closeCardBtn.addEventListener('click', function() {
-                    cardFinal.classList.remove('active');
-                    showPage(9); // Go to photo page
-                });
-                
-                // Allow clicking on card to deselect
-                cardPreview.addEventListener('click', function(e) {
-                    if (e.target === cardPreview) {
-                        if (selectedElement) {
-                            selectedElement.classList.remove('selected');
-                            selectedElement = null;
-                        }
-                    }
-                });
-            }
-            
             // Navigation
             let currentPage = 1;
-            const totalPages = 12;
+            const totalPages = 11;
             const nextBtn = document.getElementById('nextBtn');
             
             function showPage(pageNumber) {
@@ -3327,7 +2714,7 @@
                     }
                     
                     // Special effects for certain pages
-                    if (pageNumber >= 9 && pageNumber <= 11) { // Photo pages
+                    if (pageNumber >= 8 && pageNumber <= 10) { // Photo pages
                         createEnhancedConfetti();
                         const photoFrame = page.querySelector('.luxury-photo-frame');
                         if (photoFrame) {
@@ -3345,8 +2732,6 @@
                         setupPuzzleGame3();
                     } else if (pageNumber === 7) {
                         setupWordPuzzle();
-                    } else if (pageNumber === 8) {
-                        setupCardCreator();
                     }
                 }
             }
@@ -3435,6 +2820,5 @@
             createLuxuryEmojis();
         });
     </script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </body>
 </html>
